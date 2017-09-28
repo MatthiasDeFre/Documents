@@ -8,6 +8,7 @@
 * Type: Windows
 * Versie: Windows 2016 (64-bit)
 * !Indien er geen 64-bit aanwezig is = BIOS / UEFI Virtualisatie inschakelen
+
 * RAM: 1/4 Totaal = 4096 mb
 * Harde Schijf: 50GB Dynamisch alloceert
 
