@@ -30,4 +30,7 @@
 * Standard Desktop Experience = GUI niet alleen command line interface
 * Custom Install
 * Partities: 70GB
-* New: 70000mb
+  * New: 70000mb
+Header | Second
+Test | test
+test | test
