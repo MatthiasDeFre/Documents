@@ -4,13 +4,11 @@
 
 ## Virtualbox Configuratie server instantie
 
-* Naam: WindowsServer2016
-* Type: Windows
-* Versie: Windows 2016 (64-bit)
-* !Indien er geen 64-bit aanwezig is = BIOS / UEFI Virtualisatie inschakelen
+Naam | Type | Versie | RAM | Harde Schijf
+------ | ------ | ------ | ------ | ------
+WindowsServer2016 | Windows | Windows 2016 (64-bit) | 1/4 Totaal = 4096 mb | 50GB Dynamisch alloceert
 
-* RAM: 1/4 Totaal = 4096 mb
-* Harde Schijf: 50GB Dynamisch alloceert
+* !Indien er geen 64-bit aanwezig is = BIOS / UEFI Virtualisatie inschakelen
 
 ---
 
@@ -31,6 +29,5 @@
 * Custom Install
 * Partities: 70GB
   * New: 70000mb
-Header | Second
-Test | test
-test | test
+  
+
