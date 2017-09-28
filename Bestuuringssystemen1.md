@@ -26,4 +26,8 @@ Harde Schijf: 50GB Dynamisch alloceert
 * Taal: English United States
 * Dutch (Belgium)
 * Belgium (Period)
-* Ingeven Key§
+* Ingeven Key
+* Standard Desktop Experience = GUI niet alleen command line interface
+* Custom Install
+* Partities: 70GB
+* New: 70000mb
