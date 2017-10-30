@@ -4,6 +4,12 @@ sudo dnf install firewall-config
 sudo firewall-cmd --add -service=http(s) --permanent
 sudo dnf install php php-mysqlnd mariadb-server phpMyAdmin mod_ssl
 sudo systemctl restart httpd
+sudo systemctl start mariadb
+sudo vi /etc/httpd/conf.d/phpMyAdmin.conf (Require all granted) => sudo systemctl restart httpd
+sudo dnf install drupal8
 
 PHP Commando's
 phpinfo();
+
+mariaDB
+show databases;
