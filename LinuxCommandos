@@ -2,3 +2,4 @@ sudo dnf install httpd
 sudo systemctl (of service) start httpd
 sudo dnf install firewall-config
 sudo firewall-cmd --add -service=http(s) --permanent
+sudo dnf install php php-mysqlnd mariadb-server phpMyAdmin mod_ssl
