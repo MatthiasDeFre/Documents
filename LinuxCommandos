@@ -13,3 +13,6 @@ phpinfo();
 
 mariaDB
 show databases;
+
+Logfiles commando
+journalctl -u httpd
