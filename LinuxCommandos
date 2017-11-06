@@ -2,11 +2,21 @@ sudo dnf install httpd
 sudo systemctl (of service) start httpd
 sudo dnf install firewall-config
 sudo firewall-cmd --add -service=http(s) --permanent
-sudo dnf install php php-mysqlnd mariadb-server phpMyAdmin mod_ssl
+sudo dnf install php php-mysqlnd mariadb-server phpMyAdmin mod_ssl httpd
 sudo systemctl restart httpd
 sudo systemctl start mariadb
+
+//Opstart pc services opstarten
+sudo systemctl enable httpd
+sudo systemctl enable mariadb
+
+//Opstarten mariaDB / mysql programma
+mysql -u(gebruikersnaam bv:)root -p(wachtwoord) mysql(databank)
+
+//PHPmyAdmin Forbidden error
 sudo vi /etc/httpd/conf.d/phpMyAdmin.conf (Require all granted) => sudo systemctl restart httpd
 sudo dnf install drupal8
+sudo mod ssl (https)
 
 PHP Commando's
 phpinfo();
@@ -15,4 +25,10 @@ mariaDB
 show databases;
 
 Logfiles commando
-journalctl -u httpd
+journalctl -u(nit: gevolgt door naam service bv:)httpd -f(ollow: nieuwe dingen komen erbbij) 
+
+//Drupal8 settings
+cp /usr/share/drupal8/sites/default/default.settings.php /usr/share/drupal8/sites/default/settings.php
+
+(veranderen eigenaar bestand: locatie /usr/share/drupal8/sites/default/settings.php)
+sudo chown apache settings.php
