@@ -32,3 +32,22 @@ cp /usr/share/drupal8/sites/default/default.settings.php /usr/share/drupal8/site
 
 (veranderen eigenaar bestand: locatie /usr/share/drupal8/sites/default/settings.php)
 sudo chown apache settings.php
+
+
+Gebruikers
+
+useradd /Gebruiker adden
+usermod /Settings deleten
+userdel /User delete
+
+Groepen 
+
+groupadd
+groupmod
+groupdel
+
+Config files users and groups
+/etc/passwd (alle gebruikers)
+/etc/shadow (alle wachtwoorden)
+/etc/groups
+etc/gshadow
