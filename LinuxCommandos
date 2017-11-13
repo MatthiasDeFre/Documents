@@ -51,3 +51,6 @@ Config files users and groups
 /etc/shadow (alle wachtwoorden)
 /etc/groups
 etc/gshadow
+
+
+man 7 glob
