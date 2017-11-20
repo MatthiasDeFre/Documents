@@ -1,0 +1,35 @@
+r = read
+w = write
+x = execute
+  - file = "commando"
+  - directory = "toegang met cd"
+  
+  Eerste 3
+  User
+  
+  Tweede 3
+  Groep
+  
+  Derde 3
+  Others (alle anderen)
+  
+  chmod U/G/O/A +/- r/w/x FILENAAM
+  + add permission
+  - remove permission
+  
+  Kan ook chmod 775 FILENAAM
+  Getallen = binair 775 7 = I I I voor user dus rwx
+  Blijft gelijk of daalt
+  
+  0 = geen permissies
+  1 = alleen x NIET
+  2 = alleen w NIET
+  3 = WX NIET
+  4 = r
+  5 = rx = commando of exe
+  6 = rx = gewoon bestand
+  7 = rwx
+  
+  suid = maakt dat bestand wordt uitgevoerd met rechten eigenaar
+  sgid = maakt dat bestand wordt uitgevoerd met rechten groep
+  Restricted deletion = enkel eigenaar kan bestand deleten (sticky bit)
