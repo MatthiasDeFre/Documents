@@ -27,9 +27,13 @@ x = execute
   3 = WX NIET
   4 = r
   5 = rx = commando of exe
-  6 = rx = gewoon bestand
+  6 = rw = gewoon bestand
   7 = rwx
   
   suid = maakt dat bestand wordt uitgevoerd met rechten eigenaar
   sgid = maakt dat bestand wordt uitgevoerd met rechten groep
   Restricted deletion = enkel eigenaar kan bestand deleten (sticky bit)
+
+  stat -c "%a" FILENAAM = octale notaties
+  
+  
