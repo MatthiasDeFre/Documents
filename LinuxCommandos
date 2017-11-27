@@ -54,3 +54,16 @@ etc/gshadow
 
 
 man 7 glob
+
+
+bash
+Subshell variabelen
+export VARNAAM
+
+conventie
+Omgevingsvariabelen = HOODFLETTERS
+lokale = kleine letters
+
+declaratie
+varnaam=waarde(geen spatie)
+gebruiken ${var}
