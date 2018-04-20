@@ -17,8 +17,7 @@ TRUNCATE TABLE stockcount_details;
 TRUNCATE TABLE supplier;
 TRUNCATE TABLE users;
 
-SET FOREIGN_KEY_CHECKS = 1;
-
+SET FOREIGN_KEY_CHECKS = 1; 
 
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/category.csv' INTO TABLE category
 
@@ -33,7 +32,7 @@ LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/category.csv' IN
 
   FIELDS TERMINATED BY ';' ESCAPED BY ''
   IGNORE 1 LINES
-  (cu_id, @variable, @var2, @var3, @var4, @var5, @var6)
+  (cu_id, @variable, @var2, @var3, @var4)
   SET cu_name = IF(@variable = 'NULL', NULL, @variable),
      cu_telephone = IF(@var2 = 'NULL', NULL, @var2),
        cu_fax = IF(@var3 = 'NULL', NULL, @var3),
@@ -95,6 +94,107 @@ LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/invoicedetail.cs
        ind_qty = IF(@var3 = 'NULL', NULL, @var3),
          ind_total = IF(@var4 = 'NULL', NULL, @var4);
           
+ UPDATE invoicedetail
+        SET ind_total = null
+        WHERE ind_total = 0;
+        
+ LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/users.csv' INTO TABLE users
 
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (us_id, @variable, @var2, @var3, @var4)
+  SET us_code = IF(@variable = 'NULL', NULL, @variable),
+     us_name = IF(@var2 = 'NULL', NULL, @var2),
+		us_password= IF(@var3 = 'NULL', NULL, @var3),
+         us_class = IF(@var4 = 'NULL', NULL, @var4);       
+         LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/movement.csv' INTO TABLE movement
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (mo_id, @variable, @var2, @var50)
+  SET mo_us_id = IF(@variable = 'NULL', NULL, @variable),
+     mo_description = IF(@var2 = 'NULL', NULL, @var2),
+       mo_date = IF(@var50 like '%NULL%', NULL, @var50);
+       
+       
+ 
+    LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/movement_details.csv' INTO TABLE movement_details
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (mod_id, @variable, @var2, @var3, @var4, @var5)
+  SET mod_mo_id = IF(@variable = 'NULL', NULL, @variable),
+    mod_it_id = IF(@var2 = 'NULL', NULL, @var2),
+       mod_qtity = IF(@var3 = 'NULL', NULL, @var3),
+         mod_fromlocation = IF(@var4 = 'NULL', NULL, @var4),
+           mod_tolocation = IF(@var5 = 'NULL', NULL, @var5);
+             
+     
+    LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/supplier.csv' INTO TABLE supplier
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (su_id, @variable, @var2, @var3, @var4, @var5)
+  SET su_name = IF(@variable = 'NULL', NULL, @variable),
+    su_phone = IF(@var2 = 'NULL', NULL, @var2),
+       su_address = IF(@var3 = 'NULL', NULL, @var3),
+		su_fax= IF(@var4 = 'NULL', NULL, @var4),
+           su_email = IF(@var5 = 'NULL', NULL, @var5);
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/purchaseorder.csv' INTO TABLE purchaseorder
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (po_id, @variable, @var2, @var3, @var4, @var5, @var6)
+  SET po_us_id = IF(@variable LIKE '%NULL%', NULL, @variable),
+    po_su_id = IF(@var2 LIKE '%NULL%', NULL, @var2),
+       po_description = IF(@var3 = 'NULL', NULL, @var3),
+         po_dateofissue = IF(@var4 = 'NULL', NULL, @var4),
+           po_recievedate = IF(@var5 = 'NULL', NULL, @var5),
+             po_status = IF(@var6 = 'NULL', NULL, @var6);
      
      
+        LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/purchaseorder_details.csv' INTO TABLE purchaseorder_details
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (pod_id, @variable, @var2, @var3, @var4, @var5)
+  SET pod_po_id = IF(@variable = 'NULL', NULL, @variable),
+    pod_it_id = IF(@var2 = 'NULL', NULL, @var2),
+       pod_qtity = IF(@var3 = 'NULL', NULL, @var3),
+		pod_remainingqtity= IF(@var4 = 'NULL', NULL, @var4);
+        
+        LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/receipt.csv' INTO TABLE receipt
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (re_id, @variable, @var2, @var3, @var4, @var5, @var6)
+  SET re_cu_id = IF(@variable = 'NULL', NULL, @variable),
+    re_date = IF(@var2 = 'NULL', NULL, @var2),
+       re_amount = IF(@var3 = 'NULL', NULL, @var3),
+         re_modeofpayment = IF(@var4 = 'NULL', NULL, @var4),
+           re_checknumber = IF(@var5 = 'NULL', NULL, @var5),
+          re_bank = IF(@var6 = 'NULL', NULL, @var6);
+              
+     
+        LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/stockcount.csv' INTO TABLE stockcount
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (st_id, @variable, @var2, @var3, @var4)
+  SET st_us_id = IF(@variable = 'NULL', NULL, @variable),
+    st_description = IF(@var2 = 'NULL', NULL, @var2),
+       st_date = IF(@var3 LIKE '%NULL%', NULL, @var3),
+         st_status = IF(@var4 LIKE 'NULL', NULL, @var4);
+         
+          LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/stockcount_details.csv' INTO TABLE stockcount_details
+
+  FIELDS TERMINATED BY ';' ESCAPED BY ''
+  IGNORE 1 LINES
+  (std_id, @variable, @var2, @var3, @var4)
+  SET std_st_id = IF(@variable = 'NULL', NULL, @variable),
+    std_it_id = IF(@var2 = 'NULL', NULL, @var2),
+       std_qtity = IF(@var3 LIKE '%NULL%', NULL, @var3),
+         std_remainingqtity = IF(@var4 LIKE 'NULL', NULL, @var4);
+                
+         
+		
